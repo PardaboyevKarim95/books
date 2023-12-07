@@ -1,0 +1,14 @@
+body {
+  background-color: #d3caca;
+}
+ul {
+  display: grid;
+  grid-template-columns: repeat(4 , 290px);
+  grid-template-rows: auto;
+  gap: 40px;
+  padding-left: 0;
+
+}
+ul img {
+  height: 500px;
+}
