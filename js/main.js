@@ -53,12 +53,6 @@ function rendom(array, sorchinp) {
     let strongCountry = document.createElement("strong");
     let strongLanguage = document.createElement("strong");
 
-    let spanLanguage = document.createElement("span");
-    let spanYear = document.createElement("span");
-    let spanCountry = document.createElement("span");
-    let spanPages = document.createElement("span");
-    let spanOuthor = document.createElement("span");
-
     let strongText = document.createElement("p");
     let link = document.createElement("a");
     let img = document.createElement("img");
@@ -79,34 +73,24 @@ function rendom(array, sorchinp) {
       "bottom-min-wrapper d-flex justify-content-between"
     );
 
-    spanOuthor.setAttribute("class", " fw-normal fs-6");
-    spanYear.setAttribute("class", " fw-normal fs-6");
-    spanPages.setAttribute("class", "fw-normal fs-6");
-    spanCountry.setAttribute("class", "fw-normal fs-6 ");
-    spanLanguage.setAttribute("class", "fw-normal fs-6");
-
     strongOuthor.setAttribute("class", "strong-outhor fs-6 ");
     strongYear.setAttribute("class", "strong-year  fs-6");
     strongPages.setAttribute("class", "strong-pages fs-6 ");
     strongCountry.setAttribute("class", "strong-country fs-6 ");
     strongLanguage.setAttribute("class", "strong-language  fs-6");
+
     strongText.setAttribute("class", "text");
     link.setAttribute("href", item.link);
     img.setAttribute("class", "img w-100");
     title.setAttribute("class", "title mt-3 ps-3");
     img.src = item.imageLink;
 
-    strongOuthor.textContent = "Author: ";
-    strongLanguage.textContent = "Language: ";
-    strongCountry.textContent = "Country: ";
-    strongPages.textContent = "Pages: ";
-    strongYear.textContent = "Year: ";
+    strongOuthor.innerHTML = `Author: <span class=" fw-normal fs-6">${item.author}</span>`;
+    strongLanguage.innerHTML = `Language: <span class=" fw-normal fs-6">${item.language}</span>`;
+    strongCountry.innerHTML = `Country: <span class=" fw-normal fs-6">${item.country}</span>`;
+    strongPages.innerHTML = `Pages: <span class=" fw-normal fs-6">${item.pages}</span>`;
+    strongYear.innerHTML = `Year: <span class=" fw-normal fs-6">${item.year}</span>`;
 
-    spanOuthor.textContent = item.author;
-    spanCountry.textContent = item.country;
-    spanPages.textContent = item.pages;
-    spanLanguage.textContent = item.language;
-    spanYear.textContent = item.year;
     strongText.textContent = "Read latter";
     link.textContent = "Wikipedia";
     if (sorchinp) {
@@ -118,12 +102,6 @@ function rendom(array, sorchinp) {
     } else {
       title.innerHTML = `${item.title}`;
     }
-
-    strongYear.appendChild(spanYear);
-    strongCountry.appendChild(spanCountry);
-    strongLanguage.appendChild(spanLanguage);
-    strongPages.appendChild(spanPages);
-    strongOuthor.appendChild(spanOuthor);
 
     topWrapper.append(strongYear, strongPages);
     centerWrapper.append(strongCountry, strongLanguage);
